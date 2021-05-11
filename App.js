@@ -6,6 +6,8 @@ import styled from 'styled-components/native'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import Home from './components/Home'
+import CreateGame from './components/CreateGame'
+import ConnectGame from './components/ConnectGame'
 
 const Container=styled.TouchableOpacity`
   flex:1;
@@ -33,12 +35,24 @@ const StackConfig = {
     component: Home,
     options: {headerShown: false}
   },
+  CreateGame:{
+    name: "CreateGame",
+    component: CreateGame,
+    options: {headerShown: true}
+  },
+  ConnectGame:{
+    name: "ConnectGame",
+    component: ConnectGame,
+    options: {headerShown: true}
+  },
 }
 
 const Stack = createStackNavigator();
 const MainNav = () =>(
     <Stack.Navigator {...StackNavigatorConfig}>
       <Stack.Screen {...StackConfig['Home']} />
+      <Stack.Screen {...StackConfig['CreateGame']} />
+      <Stack.Screen {...StackConfig['ConnectGame']} />
     </Stack.Navigator>
 )
 
