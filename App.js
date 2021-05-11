@@ -1,21 +1,60 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
+import { Provider } from 'react-redux'
 import { StyleSheet, Text, View } from 'react-native';
+import styled from 'styled-components/native'
+import { NavigationContainer } from '@react-navigation/native'
+import { createStackNavigator } from '@react-navigation/stack'
+import Home from './components/Home'
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+const Container=styled.TouchableOpacity`
+  flex:1;
+  padding:25px 0;
+  justify-content:center;
+  margin: 0 60px; 
+  background-color:#cab7ff;
+  color: #fff; 
+  align-items:center;
+  margin-bottom:5px;
+  border-radius: 10px; 
+`
+const Filler = styled.View`
+padding:20px;
+`
+
+// Config for StackNav
+const StackNavigatorConfig = {
+  headerMode: "screen"
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+const StackConfig = {
+  Home:{
+    name: "Home",
+    component: Home,
+    options: {headerShown: false}
   },
-});
+}
+
+const Stack = createStackNavigator();
+const MainNav = () =>(
+    <Stack.Navigator {...StackNavigatorConfig}>
+      <Stack.Screen {...StackConfig['Home']} />
+    </Stack.Navigator>
+)
+
+export default function App() {
+  /* render(){
+    const store = createStore(reducer,middleware)
+    return(
+      <Provider store={store}>
+        <NavigationContainer>
+         <MainNav />
+        </NavigationContainer>
+      </Provider>    
+    )*/
+  return (
+        <NavigationContainer>
+         <MainNav />
+        </NavigationContainer>
+  );
+}
