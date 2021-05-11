@@ -13,6 +13,10 @@ const Container=styled.TouchableOpacity`
   margin-bottom:5px;
   border-radius: 10px;
 `
+const Label = styled.Text`
+    color: #fff;
+    font-size: 13px;
+`
 const Filler = styled.View`
 padding:20px;
 `
@@ -30,8 +34,8 @@ class Home extends React.Component{
       return(
         <View>
             <Filler />
-            <Container onPress = {this.CreateGame}><Text>Create a new game!</Text></Container>
-            <Container onPress = { this.Connect}><Text>Connect</Text></Container>
+            <Container onPress = {this.CreateGame}><Label>Create a new game!</Label></Container>
+            <Container onPress = { this.Connect}><Label>Connect</Label></Container>
             <Filler />
         </View>
       )
