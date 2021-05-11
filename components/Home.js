@@ -6,12 +6,12 @@ const Container=styled.TouchableOpacity`
   flex:1;
   padding:25px 0;
   justify-content:center;
-  margin: 0 60px; 
+  margin: 0 60px;
   background-color:#cab7ff;
-  color: #fff; 
+  color: #fff;
   align-items:center;
   margin-bottom:5px;
-  border-radius: 10px; 
+  border-radius: 10px;
 `
 const Filler = styled.View`
 padding:20px;
@@ -30,8 +30,8 @@ class Home extends React.Component{
       return(
         <View>
             <Filler />
-            <Container onPress = {this.CreateGame}>Create a new game!</Container>
-            <Container onPress = { this.Connect}>Connect</Container>
+            <Container onPress = {this.CreateGame}><Text>Create a new game!</Text></Container>
+            <Container onPress = { this.Connect}><Text>Connect</Text></Container>
             <Filler />
         </View>
       )
